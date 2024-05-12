@@ -1,0 +1,5 @@
+- name: Create jupyter server
+  hosts: jupyter_instances
+  roles:
+    - jupyter_ansible_install
+  become: true

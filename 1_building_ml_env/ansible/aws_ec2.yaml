@@ -1,0 +1,11 @@
+plugin: amazon.aws.aws_ec2
+aws_profile: default
+regions:
+  - us-west-2
+
+hostnames:
+  - ip-address
+
+groups:
+  ansible_instances: "'grs' in tags.ansible_group_tag"
+  jupyter_instances: "'mlopsenv' in tags.Service"

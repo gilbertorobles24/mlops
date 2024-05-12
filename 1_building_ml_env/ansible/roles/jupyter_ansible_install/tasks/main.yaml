@@ -1,0 +1,41 @@
+- name: ping dynamic inventory
+  ping:
+
+- name: System details
+  debug: msg="{{ item }}"
+  with_items: 
+  - "{{ ansible_distribution }}"
+  - "{{ ansible_distribution_version }}"
+
+- name: Upgrade all packages
+  ansible.builtin.yum:
+    name: '*'
+    state: latest
+
+- name: Check Python version
+  shell: python3 --version
+  register: python_installed
+
+- name: Check pip is installed
+  command: python3 -m ensurepip --upgrade
+
+- name: Remove python3-requests
+  ansible.builtin.package:
+    name: python3-requests
+    state: absent
+
+- name: Install jupyterlab package
+  ansible.builtin.pip:
+    name: jupyterlab
+
+# - name: Run Jupyter Lab
+#   command: jupyter lab --port=80 --ip=0.0.0.0 --allow-root & disown
+
+- name: Install the latest version of git
+  ansible.builtin.yum:
+    name: git
+    state: latest
+  register: git_installed
+    
+- name: confirm git installation
+  command: git version
