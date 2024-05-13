@@ -11,4 +11,4 @@ Unfortunately there is no way to automate vertical scaling for instances, as the
 
 My service closely resembles that of AWS Sage Maker as a ML environment based on Jupyter Lab with scalable computing power on EC2 instances.
 
-TRhe finalized product will allow the user to self manage ML EC2 instances based on dynamic requirements and auto-shut-down unused instances for cost saving.
+The final product will allow the user to self manage ML EC2 instances based on dynamic requirements and auto-shut-down unused instances for cost saving.
